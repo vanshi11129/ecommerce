@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Details</title>
+  <style>
+    
+    .size-options {
+      margin-bottom: 15px;
+    }
+    .payment-options {
+      margin-bottom: 15px;
+    }
+    .payment-options label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .payment-options input[type="radio"] {
+     margin-right:15px;
+    }
+
+    .radio-toolbar input[type="radio"] {
+      opacity: 0;
+      position: fixed;
+      width: 0;
+    }
+
+    .radio-toolbar label {
+      display: inline-block;
+      background-color: #ddd;
+      padding: 10px 20px;
+      font-family: sans-serif, Arial;
+      font-size: 16px;
+      width: 6rem;
+      text-align: center;
+      border-radius: 4px;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+
+    .radio-toolbar label:hover {
+      background-color: #EEE; 
+      border-color: white;
+    }
+
+    .radio-toolbar input[type="radio"]:checked + label {
+      background-color: #363232;
+      color: white;
+    }
+
+    
+  </style>
+</head>
+<body>
+
+    
+
+    <h2><b>Select Size</b></h2>
+
+    <div class="d-flex justify-content-around radio-toolbar">
+      <input type="radio" id="xxs" name="size" value="xxs">
+      <label for="xxs">XXS</label>
+
+      <input type="radio" id="xs" name="size" value="xs">
+      <label for="xs">XS</label>
+
+      <input type="radio" id="s" name="size" value="s">
+      <label for="s">S</label>
+
+      <input type="radio" id="m" name="size" value="m">
+      <label for="m">M</label>
+    </div>
+
+    <br>
+
+    <div class="d-flex justify-content-around radio-toolbar">
+      <input type="radio" id="l" name="size" value="l">
+      <label for="l">L</label>
+
+      <input type="radio" id="xl" name="size" value="xl">
+      <label for="xl">XL</label>
+
+      <input type="radio" id="xxl" name="size" value="xxl">
+      <label for="xxl">2XL</label>
+
+      <input type="radio" id="xxxl" name="size" value="xxxl">
+      <label for="xxxl">3XL</label>
+    </div></div>
+<br><br>
+enter your address:
+<input type="text">
+<br><br>
+    <div class="payment-options">
+        <label>Payment Method:</label> 
+        <BR>
+        <button onclick="window.location.href='https://www.bankofbaroda.in/'"  REQUIRED>BANK OF BARODA</button>
+        
+<button onclick="window.location.href='https://payments.google.com/gp/w/u/0/home/paymentmethods?sctid=2609887124224879'">GPAY</button>
+        <button onclick="window.location.href='https://www.kotak.com/en/home.html'">KOTAK MAHINDRA BANK</button>
+        <button onclick="window.location.href='https://www.axisbank.com/'">AXIS BANK</button>
+        <button onclick="window.location.href='https://www.paypal.com/in/home'">PAYPAL</button>
+<BR><BR>
+    <button onclick="window.location.href='confirm.html'">Confirm Purchase</button>
+  </div>
+  <script>
+    function validateForm() {
+      const sizeSelected = document.querySelector('input[name="size"]:checked');
+      const address = document.getElementById("address").value.trim();
+      const paymentSelected = document.querySelector('input[name="payment"]:checked');
+
+      if (!sizeSelected) {
+        alert("Please select a size.");
+        return;
+      }
+
+      if (!address) {
+        alert("Please enter your address.");
+        return;
+      }
+
+      if (!paymentSelected) {
+        alert("Please select a payment method.");
+        return;
+      }
+
+     
+      window.location.href = paymentSelected.value;
+    }
+  </script>
+</body>
+</html>
