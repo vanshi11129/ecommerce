@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+<head>
+    <title>BEAUTY PRODUCTS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product {
+            width: 250px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .product figcaption {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .buybtn {
+            display: inline-block;
+            background-color: orange;
+            color: #fff;
+            padding: 8px 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .filter-bar {
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .filter-bar input, .filter-bar select {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        img {
+            float: left;
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+        }
+    </style>
+    <link rel="icon" type="image" href="LOGO.png">
+</head>
+<body>
+
+    <h1>Beauty Products</h1>
+
+    
+    <div class="filter-bar">
+        <input type="text" id="search-bar" placeholder="Search for products..." onkeyup="searchProducts()">
+        <select id="sort-price" onchange="sortByPrice()">
+            <option value="default">Sort by Price</option>
+            <option value="low-to-high">Low to High</option>
+            <option value="high-to-low">High to Low</option>
+        </select>
+    </div>
+
+    <figure>
+    <div class="container" id="product-list">
+    
+        <div class="product" data-price="25000">
+            <img src="bp4.jpg" alt="DRY SKIN ROUTINE" height="300" width="200">
+            <figcaption>A PRE-PACKED SKIN CARE ROUTINE FOR DRY SKIN AT JUST ₹25000
+                <a href="size.html" class="buybtn">BUY NOW</a>
+            </figcaption>
+        </div>
+
+        <div class="product" data-price="3500">
+            <img src="bp1.jpg" alt="BODY LOTION" height="300" width="200">
+            <figcaption>PEACH PERFUME JUST AT ₹3500
+                <a href="size.html" class="buybtn">BUY NOW</a>
+            </figcaption>
+        </div>
+
+        <div class="product" data-price="5000">
+            <img src="bp2.jpg" alt="Foundation" height="63%" width="40%">
+            <figcaption>OUR BEST SELLING FOUNDATION JUST AT ₹5000
+                <a href="size.html" class="buybtn">BUY NOW</a>
+            </figcaption>
+        </div>
+
+        <div class="product" data-price="10000">
+            <img src="bp3.jpg" alt="HYDRATING BODY LOTION" height="335" width="220">
+            <figcaption>HYDRATING BODY LOTION JUST AT ₹10000
+                <a href="size.html" class="buybtn">BUY NOW</a>
+            </figcaption>
+        </div>
+
+        <div class="product" data-price="8000">
+            <img src="bp5.jpeg" alt="ANTI-AGING CREAM" height="300" width="200">
+            <figcaption>ANTI-AGING CREAM AT ₹8000
+                <a href="size.html" class="buybtn">BUY NOW</a>
+            </figcaption>
+        </div>
+
+        <div class="product" data-price="4500" id="offers">
+            <img src="bp6.jpg" alt="FACE SERUM" height="300" width="200">
+            <figcaption>VITAMIN C FACE SERUM AT ₹4500
+                <a href="size.html" class="buybtn">BUY NOW</a>
+            </figcaption>
+        </div>
+
+        <div class="product" data-price="6000">
+            <img src="bp7.jpg" alt="EYE CREAM" height="300" width="200">
+            <figcaption>REVITALIZING EYE CREAM AT ₹6000
+                <a href="size.html" class="buybtn">BUY NOW</a>
+            </figcaption>
+        </div>
+
+        <div class="product" data-price="1200">
+            <img src="bp8.webp" alt="FACE MASK" height="300" width="200">
+            <figcaption>FACE MASK AT ₹1200
+                <a href="size.html" class="buybtn">BUY NOW</a>
+            </figcaption>
+        </div>
+
+        <div class="product" data-price="7000">
+            <img src="bp9.webp" alt="BODY SCRUB" height="300" width="200">
+            <figcaption>EXFOLIATING BODY SCRUB AT ₹7000
+                <a href="size.html" class="buybtn">BUY NOW</a>
+            </figcaption>
+        </div>
+
+        <div class="product" data-price="15000">
+            <img src="bp10.jpg" alt="HAIR CARE SET" height="300" width="200">
+            <figcaption>PREMIUM HAIR CARE SET AT ₹15000
+                <a href="size.html" class="buybtn">BUY NOW</a>
+            </figcaption>
+        </div>
+    </div>
+    </figure>
+
+    <script>
+        
+        function searchProducts() {
+            let input = document.getElementById("search-bar").value.toLowerCase();
+            let products = document.querySelectorAll(".product");
+
+            products.forEach(product => {
+                let text = product.textContent.toLowerCase();
+                product.style.display = text.includes(input) ? "block" : "none";
+            });
+        }
+
+       
+        function sortByPrice() {
+            let sortValue = document.getElementById("sort-price").value;
+            let container = document.getElementById("product-list");
+            let products = Array.from(container.getElementsByClassName("product"));
+
+            if (sortValue === "low-to-high") {
+                products.sort((a, b) => parseInt(a.dataset.price) - parseInt(b.dataset.price));
+            } else if (sortValue === "high-to-low") {
+                products.sort((a, b) => parseInt(b.dataset.price) - parseInt(a.dataset.price));
+            }
+
+            container.innerHTML = "";
+            products.forEach(product => container.appendChild(product));
+        }
+    </script>
+
+</body>
+</html>
