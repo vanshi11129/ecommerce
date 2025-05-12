@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOP FOR NEWBORN BABIES</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product {
+            width: 250px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .product figcaption {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .buybtn {
+            display: inline-block;
+            background-color: orange;
+            color: #fff;
+            padding: 8px 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .filter-bar {
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .filter-bar input, .filter-bar select {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        img {
+            float: left;
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Newborn Baby Shopping</h1>
+
+    <div class="filter-bar">
+        <input type="text" id="search-bar" placeholder="Search for products..." onkeyup="searchProducts()">
+        <select id="sort-price" onchange="sortByPrice()">
+            <option value="default">Sort by Price</option>
+            <option value="low-to-high">Low to High</option>
+            <option value="high-to-low">High to Low</option>
+        </select>
+    </div>
+    
+    <div class="container" id="product-list">
+        
+        <div class="product" data-price="1000">
+            <img src="baby2.jpg" alt="Blue Jumpsuit">
+            <figcaption>BLUE JUMPSUIT FOR BABIES AT ₹1000</figcaption>
+            <a href="size.html" class="buybtn">BUY NOW</a>
+        </div>
+
+        <div class="product" data-price="2000">
+            <img src="baby3.jpg" alt="Clothes for Twins">
+            <figcaption>CLOTHES FOR TWINS JUST AT ₹2000</figcaption>
+            <a href="size.html" class="buybtn">BUY NOW</a>
+        </div>
+
+        <div class="product" data-price="3000">
+            <img src="baby4.webp" alt="Panda Jumpsuit">
+            <figcaption>PANDA JUMPSUIT JUST AT ₹3000</figcaption>
+            <a href="size.html" class="buybtn">BUY NOW</a>
+        </div>
+
+        <div class="product" data-price="2500">
+            <img src="baby1.jpg" alt="Light Pink Jumpsuit">
+            <figcaption>LIGHT PINK JUMPSUIT JUST AT ₹2500</figcaption>
+            <a href="size.html" class="buybtn">BUY NOW</a>
+        </div>
+
+        
+        <div class="product" data-price="1800">
+            <img src="baby5.webp" alt="Baby Hat Set">
+            <figcaption>BEAUTIFUL BABY HAT SET AT ₹1800</figcaption>
+            <a href="size.html" class="buybtn">BUY NOW</a>
+        </div>
+
+        <div class="product" data-price="1200">
+            <img src="baby6.jpg" alt="Baby shoes">
+            <figcaption>SOFT BABY SHOES AT ₹1200</figcaption>
+            <a href="size.html" class="buybtn">BUY NOW</a>
+        </div>
+
+        <div class="product" data-price="1500" id="offers">
+            <img src="baby7.jpg" alt="Baby blanket">
+            <figcaption>CUTE BABY BLANKET AT ₹1500</figcaption>
+            <a href="size.html" class="buybtn">BUY NOW</a>
+        </div>
+
+        <div class="product" data-price="2200">
+            <img src="baby8.jpg" alt="Baby Socks">
+            <figcaption>ADORABLE BABY SOCKS AT ₹2200</figcaption>
+            <a href="size.html" class="buybtn">BUY NOW</a>
+        </div>
+
+        <div class="product" data-price="1300">
+            <img src="baby9.jpg" alt="Baby Mittens">
+            <figcaption>CUDDLY BABY MITTENS AT ₹1300</figcaption>
+            <a href="size.html" class="buybtn">BUY NOW</a>
+        </div>
+
+        <div class="product" data-price="1700">
+            <img src="baby10.jpg" alt="Baby Bibs Set">
+            <figcaption>SET OF BABY BIBS AT ₹1700</figcaption>
+            <a href="size.html" class="buybtn">BUY NOW</a>
+        </div>
+    </div>
+
+    <script>
+       
+        function searchProducts() {
+            let input = document.getElementById("search-bar").value.toLowerCase();
+            let products = document.querySelectorAll(".product");
+
+            products.forEach(product => {
+                let text = product.textContent.toLowerCase();
+                product.style.display = text.includes(input) ? "block" : "none";
+            });
+        }
+
+        
+        function sortByPrice() {
+            let sortValue = document.getElementById("sort-price").value;
+            let container = document.getElementById("product-list");
+            let products = Array.from(container.getElementsByClassName("product"));
+
+            if (sortValue === "low-to-high") {
+                products.sort((a, b) => parseInt(a.dataset.price) - parseInt(b.dataset.price));
+            } else if (sortValue === "high-to-low") {
+                products.sort((a, b) => parseInt(b.dataset.price) - parseInt(a.dataset.price));
+            }
+
+            container.innerHTML = "";
+            products.forEach(product => container.appendChild(product));
+        }
+    </script>
+</body>
+</html>
