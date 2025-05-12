@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Confirmation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  .container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+a {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+}
+</style>
+<body>
+  <div class="container">
+    <h1>Order Confirmation</h1>
+    <p>Thank you for your order!</p>
+    <p>Order Number: <span id="order-number"></span></p>
+    <p>Order Date: <span id="order-date"></span></p>
+    <p>Total Amount: <span id="total-amount"></span></p>
+    <a href="final.html">Back to Home</a>
+  </div>
+
+  <script> 
+document.addEventListener("DOMContentLoaded", function () {
+  let randomOrderId = Math.floor(10000 + Math.random() * 90000);   
+  let newOrderId =randomOrderId;
+  
+  document.getElementById("order-number").textContent = newOrderId;
+});
+
+
+const d = new Date();
+document.getElementById("order-date").innerHTML = d;
+
+let x = Math.floor((Math.random() * 100000) + 1);
+document.getElementById("total-amount").innerHTML = x;
+
+</script>
+</body>
+</html>
