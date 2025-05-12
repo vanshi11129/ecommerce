@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html><head><title> MAILING LIST BENIFITS</title>
+<style>
+#ex {
+  background: url(bg.jpg);
+  background-repeat: no-repeat;
+ background-size:cover;
+}
+
+h2{font-weight:bold;}
+
+</style>
+</head>
+<body id=ex>
+<h1 style=text-align:center;> JOIN OUR MAILING LIST </h1>
+<h2> WONDERING WHY? THEN CONTINUE READING! </h2>
+<OL>
+<LI> IF YOU ARE PART OF THE MAILING LIST YOU WILL BE NOTIFIED EARLY ABOUT A PRODUCT LANUCH. </LI>
+<LI> IF THERE ARE ANY REDUCTIONS IN PRICES YOU WILL BE NOTIFIED BEFOREHAND. </LI>
+<LI> WE GIVE RANDOM COUPON CODES SO THAT YOU CAN SAVE MONEY!</LI>
+</OL>
+<I> AND MANY MORE.... </I>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+
+<FORM>
+Please enter you email id: <INPUT TYPE="EMAIL"> 
+
+<BR>
+<BR>
+<a href="ty.jpg"><img src="submit.png" alt="HTML tutorial" style="width:7.5%;height:7.5%;"></a>
+
+</body>
+</html>
